@@ -11,9 +11,7 @@ power_2007 <- power[power$Date=="2007-02-01" | power$Date=="2007-02-02" , ]
 datetime <- paste(power_2007$Date, power_2007$Time)
 power_2007$Datetime <- as.POSIXct(datetime)
 
-with(power_2007,plot(Datetime,Sub_metering_1, type="l",
-                     ylab="Energy sub metering", xlab=""))
-with(power_2007,lines(Datetime,Sub_metering_2,col = "red"))
-with(power_2007,lines(Datetime,Sub_metering_3,col = "blue"))
-dev.copy(png, file="plot3.png", height=480, width=480)
+with(power_2007,plot(Datetime,Global_active_power, type="l",
+                     ylab="Global Active Power (kilowatts)", xlab=""))
+dev.copy(png, file="plot2.png", height=480, width=480)
 dev.off()
